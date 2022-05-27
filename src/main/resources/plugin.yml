@@ -1,0 +1,9 @@
+name: ZyneonAPI
+version: '${project.version}'
+main: com.zyneonstudios.api.Zyneon
+api-version: 1.18
+prefix: ZyneonAPI
+loadbefore: [ ProjectsBase, KnockIT, Lobbysystem, FFA, BungeeBase, SkyBlock ]
+authors: [ ZyneonStudios, nerotvlive ]
+description: Base API for all Zyneon Studios subservers
+website: https://zyneonstudios.com
