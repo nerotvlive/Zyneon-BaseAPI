@@ -78,4 +78,8 @@ public class Server {
         }
         bukkitServer.shutdown();
     }
+
+    public void setSlots(int slots) {
+        bukkitServer.setMaxPlayers(slots);
+    }
 }
