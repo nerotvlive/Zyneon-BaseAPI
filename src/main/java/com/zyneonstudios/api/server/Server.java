@@ -1,4 +1,4 @@
-package com.zyneonstudios.api.Server;
+package com.zyneonstudios.api.server;
 
 import com.zyneonstudios.api.Zyneon;
 import com.zyneonstudios.api.utils.Countdown;

@@ -1,6 +1,6 @@
 package com.zyneonstudios.api;
 
-import com.zyneonstudios.api.Server.Server;
+import com.zyneonstudios.api.server.Server;
 import com.zyneonstudios.api.listeners.PlayerJoinListener;
 import com.zyneonstudios.api.listeners.PlayerQuitListener;
 import com.zyneonstudios.api.utils.ZyneonAPI;
