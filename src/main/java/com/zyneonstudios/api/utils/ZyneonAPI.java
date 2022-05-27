@@ -1,7 +1,6 @@
 package com.zyneonstudios.api.utils;
 
 import com.zyneonstudios.api.utils.user.User;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
