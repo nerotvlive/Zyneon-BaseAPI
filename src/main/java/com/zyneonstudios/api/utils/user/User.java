@@ -16,6 +16,7 @@ public class User {
     private OfflinePlayer offlinePlayer;
     private UUID uuid;
     private boolean isBedrock;
+    private boolean isBanned = false;
 
     public User(UUID uuid) {
         if(Bukkit.getPlayer(uuid)!=null) {
@@ -59,6 +60,10 @@ public class User {
 
     public boolean isBedrock() {
         return isBedrock;
+    }
+
+    public boolean isBanned() {
+        return isBanned;
     }
 
     public UUID getUUID() {
@@ -136,6 +141,8 @@ public class User {
             player = null;
         }
         offlinePlayer = null;
+        isBanned = false;
+        isBedrock = false;
         Zyneon.getAPI().getOnlineUsers().remove(uuid);
         uuid = null;
         System.gc();
