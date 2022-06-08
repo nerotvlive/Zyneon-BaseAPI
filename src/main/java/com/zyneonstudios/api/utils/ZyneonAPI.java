@@ -1,6 +1,12 @@
 package com.zyneonstudios.api.utils;
 
 import com.zyneonstudios.api.utils.user.User;
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -56,6 +62,11 @@ public class ZyneonAPI {
         Date now = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy");
         return Integer.parseInt(format.format(now));
+    }
+
+    public static void initListenerClass(PluginManager pluginManager, Listener listener, Plugin plugin) {
+        Bukkit.getConsoleSender().sendMessage(Strings.prefix()+"§f  -> §7Lade Listenerklasse §e"+listener.getClass().getSimpleName()+"§8...");
+        pluginManager.registerEvents(listener,plugin);
     }
 
     public HashMap<UUID,User> getOnlineUsers() {
