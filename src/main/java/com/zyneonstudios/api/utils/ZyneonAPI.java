@@ -64,7 +64,7 @@ public class ZyneonAPI {
         return Integer.parseInt(format.format(now));
     }
 
-    public static void initListenerClass(PluginManager pluginManager, Listener listener, Plugin plugin) {
+    public void initListenerClass(PluginManager pluginManager, Listener listener, Plugin plugin) {
         Bukkit.getConsoleSender().sendMessage(Strings.prefix()+"§f  -> §7Lade Listenerklasse §e"+listener.getClass().getSimpleName()+"§8...");
         pluginManager.registerEvents(listener,plugin);
     }

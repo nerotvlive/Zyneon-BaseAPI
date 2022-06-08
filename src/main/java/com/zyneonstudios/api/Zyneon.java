@@ -20,10 +20,14 @@ public final class Zyneon extends JavaPlugin {
     private static Zyneon instance;
 
     @Override
-    public void onEnable() {
+    public void onLoad() {
         instance = this;
         server = new Server();
         zAPI = new ZyneonAPI();
+    }
+
+    @Override
+    public void onEnable() {
         pm = Bukkit.getPluginManager();
         initListeners();
     }
