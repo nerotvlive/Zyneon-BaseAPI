@@ -2,6 +2,7 @@ package com.zyneonstudios.api.server;
 
 import com.zyneonstudios.api.Zyneon;
 import com.zyneonstudios.api.utils.Countdown;
+import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.utils.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -69,6 +70,14 @@ public class Server {
         } else {
             return false;
         }
+    }
+
+    public void sendMessage(String message) {
+        Bukkit.getConsoleSender().sendMessage(Strings.prefix()+message.replace("&&","%and%").replace("&","§").replace("%and%","&"));
+    }
+
+    public void sendErrorMessage(String message) {
+        Bukkit.getConsoleSender().sendMessage("§c"+message.replace("&&","%and%").replace("&","§").replace("%and%","&"));
     }
 
     public void instantStop(String reason) {
