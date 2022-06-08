@@ -2,12 +2,14 @@ package com.zyneonstudios.api.utils;
 
 public class Strings {
 
+    private static String prefixWord = "Zyneon";
+
     public static String prefix(String prefixWord) {
         return "§d"+prefixWord+"§8 » §7";
     }
 
     public static String prefix() {
-        return "§dZyneon §8» §7";
+        return "§d"+prefixWord+" §8» §7";
     }
 
     public static String playerNotFound(String playerName) {
@@ -32,5 +34,9 @@ public class Strings {
 
     public static String needPlayer() {
         return "§cDazu §4musst§c du ein Spieler sein§8!";
+    }
+
+    public static void setPrefixWord(String word) {
+        prefixWord = word;
     }
 }
