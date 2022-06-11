@@ -1,5 +1,6 @@
 package com.zyneonstudios.api.utils;
 
+import com.zyneonstudios.api.Zyneon;
 import com.zyneonstudios.api.utils.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -7,11 +8,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 public class ZyneonAPI {
 
@@ -28,6 +29,24 @@ public class ZyneonAPI {
     public void disconnectUser(User user) {
         onlineUsers.remove(user.getUUID());
         user.disconnect();
+    }
+
+    public ArrayList<Integer> getIDS() {
+        if(Zyneon.getZyneonServer().getConfig().getCFG().getBoolean("MySQL.enable")) {
+            try {
+                ArrayList<Integer> list = new ArrayList<>();
+                PreparedStatement ps = Zyneon.getZyneonServer().getSQL().getConnection().prepareStatement("SELECT * FROM serverlist ORDER BY ID DESC");
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    list.add(rs.getInt(1));
+                }
+                return list;
+            } catch (SQLException e) {
+                return new ArrayList<>();
+            }
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     public User getOnlineUser(UUID uuid) {
@@ -50,6 +69,30 @@ public class ZyneonAPI {
         Date now = new Date();
         SimpleDateFormat format = new SimpleDateFormat("HH:mm dd.MM.yyyy");
         return format.format(now);
+    }
+
+    public int getSeconds() {
+        Date now = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("ss");
+        return Integer.parseInt(format.format(now));
+    }
+
+    public int getMinute() {
+        Date now = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("mm");
+        return Integer.parseInt(format.format(now));
+    }
+
+    public int getHour() {
+        Date now = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("HH");
+        return Integer.parseInt(format.format(now));
+    }
+
+    public int getDay() {
+        Date now = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd");
+        return Integer.parseInt(format.format(now).replace("0",""));
     }
 
     public int getMonth() {

@@ -54,6 +54,10 @@ public class User {
             if(Zyneon.getPluginManager().isPluginEnabled("ProjectsBase")) {
                 return live.nerotv.projectsbase.api.API.getUser(uuid);
             }
+        } else if(type.equals(UserType.skyblockUser)) {
+            if(Zyneon.getPluginManager().isPluginEnabled("SkyBlock")) {
+                return null; //IslandPlayer
+            }
         }
         return null;
     }

@@ -1,5 +1,6 @@
 package com.zyneonstudios.api;
 
+import com.zyneonstudios.api.commands.RegisterCommand;
 import com.zyneonstudios.api.server.Server;
 import com.zyneonstudios.api.listeners.PlayerJoinListener;
 import com.zyneonstudios.api.listeners.PlayerQuitListener;
@@ -22,14 +23,16 @@ public final class Zyneon extends JavaPlugin {
     @Override
     public void onLoad() {
         instance = this;
-        server = new Server();
         zAPI = new ZyneonAPI();
+        server = new Server();
     }
 
     @Override
     public void onEnable() {
         pm = Bukkit.getPluginManager();
         initListeners();
+        getCommand("register").setExecutor(new RegisterCommand());
+        Bukkit.getConsoleSender().sendMessage(zAPI.getIDS()+"");
     }
 
     @Override

@@ -7,3 +7,6 @@ loadbefore: [ ProjectsBase, KnockIT, Lobbysystem, FFA, BungeeBase, SkyBlock ]
 authors: [ ZyneonStudios, nerotvlive ]
 description: Base API for all Zyneon Studios subservers
 website: https://zyneonstudios.com
+
+commands:
+  register:
