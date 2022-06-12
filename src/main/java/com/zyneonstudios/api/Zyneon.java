@@ -1,5 +1,6 @@
 package com.zyneonstudios.api;
 
+import com.zyneonstudios.api.commands.GetIDCommand;
 import com.zyneonstudios.api.commands.RegisterCommand;
 import com.zyneonstudios.api.server.Server;
 import com.zyneonstudios.api.listeners.PlayerJoinListener;
@@ -32,6 +33,7 @@ public final class Zyneon extends JavaPlugin {
         pm = Bukkit.getPluginManager();
         initListeners();
         getCommand("register").setExecutor(new RegisterCommand());
+        getCommand("getid").setExecutor(new GetIDCommand());
         Bukkit.getConsoleSender().sendMessage(zAPI.getIDS()+"");
     }
 

@@ -10,3 +10,5 @@ website: https://zyneonstudios.com
 
 commands:
   register:
+  getid:
+    aliases: [sid,serverid]
