@@ -1,6 +1,7 @@
 package com.zyneonstudios.api.utils.user;
 
 import com.zyneonstudios.api.Zyneon;
+import com.zyneonstudios.api.utils.Strings;
 import live.nerotv.lobbysystem.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -108,7 +109,7 @@ public class User {
     }
 
     public void sendMessage(String message) {
-        sendRawMessage(message);
+        sendRawMessage(Strings.prefix()+message);
         if(player!=null) {
             player.playSound(player.getLocation(),Sound.ENTITY_CHICKEN_EGG,100,100);
         }
