@@ -34,7 +34,7 @@ public final class Zyneon extends JavaPlugin {
         initListeners();
         getCommand("register").setExecutor(new RegisterCommand());
         getCommand("getid").setExecutor(new GetIDCommand());
-        Bukkit.getConsoleSender().sendMessage(zAPI.getIDS()+"");
+        server.generateID();
     }
 
     @Override

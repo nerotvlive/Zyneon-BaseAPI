@@ -3,11 +3,9 @@ package com.zyneonstudios.api.utils;
 import com.zyneonstudios.api.Zyneon;
 import com.zyneonstudios.api.utils.user.User;
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,7 +30,7 @@ public class ZyneonAPI {
     }
 
     public ArrayList<Integer> getIDS() {
-        if(Zyneon.getZyneonServer().getConfig().getCFG().getBoolean("MySQL.enable")) {
+        if (Zyneon.getZyneonServer().getConfig().getCFG().getBoolean("MySQL.enable")) {
             try {
                 ArrayList<Integer> list = new ArrayList<>();
                 PreparedStatement ps = Zyneon.getZyneonServer().getSQL().getConnection().prepareStatement("SELECT * FROM serverlist ORDER BY ID DESC");

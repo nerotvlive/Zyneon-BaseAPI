@@ -28,6 +28,8 @@ public class Server {
         if(config.getFile().exists()) {
             if(config.getCFG().contains("Server.ID")) {
                 isRegistered = true;
+            } else {
+                isRegistered = false;
             }
         }
         config.checkEntry("MySQL.enable",false);
@@ -43,24 +45,24 @@ public class Server {
         } else {
             mysql = null;
         }
-        if (!isRegistered) {
-            generateID();
-        } else {
+        if (isRegistered) {
             serverID = config.getCFG().getInt("Server.ID");
         }
     }
 
-    private void generateID() {
-        String SID = 13+""+ThreadLocalRandom.current().nextInt(1000,9999);
-        int id = Integer.parseInt(SID);
-        if(config.getCFG().getBoolean("MySQL.enable")) {
-            if(Zyneon.getAPI().getIDS().contains(id)) {
-                generateID();
+    public void generateID() {
+        if(!isRegistered) {
+            String SID = "13" + "" + ThreadLocalRandom.current().nextInt(1000, 9999);
+            int id = Integer.parseInt(SID);
+            if (config.getCFG().getBoolean("MySQL.enable")) {
+                if (Zyneon.getAPI().getIDS().contains(id)) {
+                    generateID();
+                } else {
+                    serverID = id;
+                }
             } else {
                 serverID = id;
             }
-        } else {
-            serverID = id;
         }
     }
 
