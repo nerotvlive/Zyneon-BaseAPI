@@ -38,7 +38,7 @@ public class Zyneon extends Plugin {
         BungeeBase.onEnable();
         pm.registerCommand(instance,new GetProxyIDCommand("GetProxyID"));
         pm.registerCommand(instance,new RegisterProxyCommand("RegisterProxy"));
-        server.getServerID();
+        server.generateID();
     }
 
     @Override
