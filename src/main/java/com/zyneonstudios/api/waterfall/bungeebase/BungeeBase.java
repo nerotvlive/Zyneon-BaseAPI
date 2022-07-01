@@ -1,7 +1,7 @@
 package com.zyneonstudios.api.waterfall.bungeebase;
 
 import com.zyneonstudios.api.utils.Strings;
-import com.zyneonstudios.api.waterfall.Zyneon;
+import com.zyneonstudios.api.waterfall.ProxiedZyneon;
 import com.zyneonstudios.api.waterfall.bungeebase.api.API;
 import com.zyneonstudios.api.waterfall.bungeebase.api.ConfigAPI;
 import com.zyneonstudios.api.waterfall.bungeebase.commands.*;
@@ -9,15 +9,15 @@ import com.zyneonstudios.api.waterfall.bungeebase.listener.*;
 
 public class BungeeBase {
 
-    public static Zyneon instance;
+    public static ProxiedZyneon instance;
     private static String version = "1.24.0-1.19-SNAPSHOT";
 
-    public static Zyneon getInstance() { return instance; }
+    public static ProxiedZyneon getInstance() { return instance; }
     public static String getVersion() { if(version.equalsIgnoreCase("v")) {return "0";} else {return version;} }
 
     @Deprecated
     public static void onLoad() {
-        instance = Zyneon.getInstance();
+        instance = ProxiedZyneon.getInstance();
         Strings.setPrefixWord("Zyneon");
         API.sendInit();
         API.sendMessage("§0");
@@ -31,7 +31,7 @@ public class BungeeBase {
 
     @Deprecated
     public static void onEnable() {
-        instance = Zyneon.getInstance();
+        instance = ProxiedZyneon.getInstance();
         ConfigAPI.reloadConfig();
         API.checkForRestart();
         API.sendInit();

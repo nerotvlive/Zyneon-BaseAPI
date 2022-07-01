@@ -1,6 +1,6 @@
 name: ZyneonAPI
 version: '${project.version}'
-main: com.zyneonstudios.api.waterfall.Zyneon
+main: com.zyneonstudios.api.waterfall.ProxiedZyneon
 api-version: 1.19
 prefix: ZyneonAPI
 authors: [ ZyneonStudios, nerotvlive ]

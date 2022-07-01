@@ -1,7 +1,7 @@
 package com.zyneonstudios.api.waterfall.commands;
 
-import com.zyneonstudios.api.waterfall.Zyneon;
-import com.zyneonstudios.api.waterfall.server.Server;
+import com.zyneonstudios.api.waterfall.ProxiedZyneon;
+import com.zyneonstudios.api.waterfall.server.ProxiedServer;
 import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.utils.sql.MySQL;
 import com.zyneonstudios.api.waterfall.utils.communication.Communicate;
@@ -21,8 +21,8 @@ public class RegisterProxyCommand extends Command {
     @Override
     public void execute(CommandSender s, String[] args) {
         if(s.hasPermission("zyneon.leading.register")) {
-            Server server = Zyneon.getZyneonServer();
-            if(server.isRegistered()) {
+            ProxiedServer proxiedServer = ProxiedZyneon.getZyneonServer();
+            if(proxiedServer.isRegistered()) {
                 s.sendMessage("§cDer Server ist bereits registriert§8!");
                 if(s instanceof ProxiedPlayer p) {
                     Communicate.sendSound(p, Sound.BLOCK_ANVIL_BREAK.toString());
@@ -30,9 +30,9 @@ public class RegisterProxyCommand extends Command {
             } else {
                 if(args.length == 1) {
                     String name = args[0];
-                    int ID = server.getServerID();
-                    if(server.getConfig().getCFG().getBoolean("MySQL.enable")) {
-                        MySQL sql = server.getSQL();
+                    int ID = proxiedServer.getServerID();
+                    if(proxiedServer.getConfig().getCFG().getBoolean("MySQL.enable")) {
+                        MySQL sql = proxiedServer.getSQL();
                         try {
                             sql.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS serverlist (ID INT,NAME VARCHAR(32))").executeUpdate();
                             PreparedStatement ps = sql.getConnection().prepareStatement("INSERT INTO serverlist (ID,NAME) VALUES (?,?)");
@@ -45,10 +45,10 @@ public class RegisterProxyCommand extends Command {
                                 Communicate.sendSound(p, Sound.BLOCK_ANVIL_BREAK.toString());
                             }
                         }
-                        server.getConfig().getCFG().set("Server.ID", ID);
-                        server.getConfig().saveConfig();
-                        server.getConfig().reloadConfig();
-                        server.setRegistered(true);
+                        proxiedServer.getConfig().getCFG().set("Server.ID", ID);
+                        proxiedServer.getConfig().saveConfig();
+                        proxiedServer.getConfig().reloadConfig();
+                        proxiedServer.setRegistered(true);
                         s.sendMessage(Strings.prefix() + "§7Du hast den Server erfolgreich unter der ID §e" + ID + "§7 registriert§8!");
                         if(s instanceof ProxiedPlayer p) {
                             Communicate.sendSound(p, Sound.ENTITY_CHICKEN_EGG.toString());

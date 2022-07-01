@@ -1,6 +1,6 @@
 package com.zyneonstudios.api.waterfall.utils;
 
-import com.zyneonstudios.api.waterfall.Zyneon;
+import com.zyneonstudios.api.waterfall.ProxiedZyneon;
 import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.waterfall.utils.user.ProxiedUser;
 import net.md_5.bungee.api.plugin.Listener;
@@ -12,10 +12,10 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class ZyneonAPI {
+public class ProxiedZyneonAPI {
 
     private HashMap<UUID, ProxiedUser> onlineUsers;
-    public ZyneonAPI() {
+    public ProxiedZyneonAPI() {
         onlineUsers = new HashMap<>();
     }
 
@@ -42,10 +42,10 @@ public class ZyneonAPI {
     }
 
     public ArrayList<Integer> getIDS() {
-        if (Zyneon.getZyneonServer().getConfig().getCFG().getBoolean("MySQL.enable")) {
+        if (ProxiedZyneon.getZyneonServer().getConfig().getCFG().getBoolean("MySQL.enable")) {
             try {
                 ArrayList<Integer> list = new ArrayList<>();
-                PreparedStatement ps = Zyneon.getZyneonServer().getSQL().getConnection().prepareStatement("SELECT * FROM serverlist ORDER BY ID DESC");
+                PreparedStatement ps = ProxiedZyneon.getZyneonServer().getSQL().getConnection().prepareStatement("SELECT * FROM serverlist ORDER BY ID DESC");
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     list.add(rs.getInt(1));

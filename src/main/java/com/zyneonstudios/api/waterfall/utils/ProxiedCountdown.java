@@ -4,13 +4,13 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.scheduler.ScheduledTask;
 import java.util.concurrent.TimeUnit;
 
-public abstract class Countdown {
+public abstract class ProxiedCountdown {
 
     private int time;
     ScheduledTask task = null;
     protected final Plugin plugin;
 
-    public Countdown(int time, Plugin plugin) {
+    public ProxiedCountdown(int time, Plugin plugin) {
         this.time = time;
         this.plugin = plugin;
     }

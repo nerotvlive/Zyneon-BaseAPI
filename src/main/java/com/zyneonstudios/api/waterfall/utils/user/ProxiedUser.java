@@ -1,7 +1,7 @@
 package com.zyneonstudios.api.waterfall.utils.user;
 
 import com.zyneonstudios.api.utils.Strings;
-import com.zyneonstudios.api.waterfall.Zyneon;
+import com.zyneonstudios.api.waterfall.ProxiedZyneon;
 import com.zyneonstudios.api.waterfall.bungeebase.api.BanAPI;
 import com.zyneonstudios.api.waterfall.utils.communication.Communicate;
 import net.md_5.bungee.api.ProxyServer;
@@ -24,7 +24,7 @@ public class ProxiedUser {
         this.init = 0;
         this.uuid = uuid;
         this.isBedrock = false;
-        if(Zyneon.getPluginManager().getPlugin("floodgate")!=null) {
+        if(ProxiedZyneon.getPluginManager().getPlugin("floodgate")!=null) {
             if(player!=null) {
                 if(player.getName().contains("*")) {
                     this.isBedrock = true;

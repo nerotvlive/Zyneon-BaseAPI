@@ -1,6 +1,6 @@
 package com.zyneonstudios.api.waterfall.bungeebase.listener;
 
-import com.zyneonstudios.api.waterfall.Zyneon;
+import com.zyneonstudios.api.waterfall.ProxiedZyneon;
 import com.zyneonstudios.api.waterfall.utils.user.ProxiedUser;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.ServerSwitchEvent;
@@ -12,7 +12,7 @@ public class PlayerChangeServer implements Listener {
     @EventHandler
     public void onServerChange(ServerSwitchEvent e) {
         ProxiedPlayer p = e.getPlayer();
-        ProxiedUser u = Zyneon.getAPI().getOnlineUser(p.getUniqueId());
+        ProxiedUser u = ProxiedZyneon.getAPI().getOnlineUser(p.getUniqueId());
         u.setInit(u.getInit()+1);
         String serverName = e.getPlayer().getServer().getInfo().getName();
         if(u.getInit()>=2) {

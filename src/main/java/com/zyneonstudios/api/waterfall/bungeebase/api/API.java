@@ -1,8 +1,8 @@
 package com.zyneonstudios.api.waterfall.bungeebase.api;
 
-import com.zyneonstudios.api.waterfall.Zyneon;
+import com.zyneonstudios.api.waterfall.ProxiedZyneon;
 import com.zyneonstudios.api.waterfall.bungeebase.BungeeBase;
-import com.zyneonstudios.api.waterfall.utils.Countdown;
+import com.zyneonstudios.api.waterfall.utils.ProxiedCountdown;
 import com.zyneonstudios.api.waterfall.utils.communication.Communicate;
 import com.zyneonstudios.api.waterfall.utils.user.Sound;
 import net.md_5.bungee.api.CommandSender;
@@ -42,12 +42,12 @@ public class API {
 
     public static void registerCommand(Plugin plugin, Command command, String name) {
         sendMessage("§0  §f--> §7Der Command §8\"§e"+name+"§8\"§7 wird geladen...");
-        Zyneon.getPluginManager().registerCommand(plugin,command);
+        ProxiedZyneon.getPluginManager().registerCommand(plugin,command);
     }
 
     public static void registerListener(Plugin plugin,Listener listener,String name) {
         sendMessage("§0  §f--> §7Der Listener §8\"§e"+name+"§8\"§7 wird geladen...");
-        Zyneon.getPluginManager().registerListener(plugin,listener);
+        ProxiedZyneon.getPluginManager().registerListener(plugin,listener);
     }
 
     public static void registerEvent(Plugin plugin,Listener listener,String name) {
@@ -319,7 +319,7 @@ public class API {
 
     public static void scheduledShutdown() {
         isStopping = true;
-        new Countdown(27, BungeeBase.getInstance()) {
+        new ProxiedCountdown(27, BungeeBase.getInstance()) {
             @Override
             public void count(int current) {
                 if (current < 26) {

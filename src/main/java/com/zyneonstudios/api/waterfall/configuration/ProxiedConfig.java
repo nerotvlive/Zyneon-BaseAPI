@@ -6,12 +6,12 @@ import net.md_5.bungee.config.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public class Config {
+public class ProxiedConfig {
 
     private File config;
     private Configuration cfg;
 
-    public Config(String path) {
+    public ProxiedConfig(String path) {
         this.config = new File(path);
         File dir = new File(config.getParent());
         if(!dir.exists()) {
