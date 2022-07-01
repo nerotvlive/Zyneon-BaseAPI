@@ -1,6 +1,8 @@
 package com.zyneonstudios.api.waterfall;
 
 import com.zyneonstudios.api.waterfall.bungeebase.BungeeBase;
+import com.zyneonstudios.api.waterfall.commands.GetProxyIDCommand;
+import com.zyneonstudios.api.waterfall.commands.RegisterProxyCommand;
 import com.zyneonstudios.api.waterfall.listeners.PlayerDisconnectListener;
 import com.zyneonstudios.api.waterfall.listeners.PlayerLoginListener;
 import com.zyneonstudios.api.waterfall.server.Server;
@@ -34,6 +36,8 @@ public class Zyneon extends Plugin {
     public void onEnable() {
         initListeners();
         BungeeBase.onEnable();
+        pm.registerCommand(instance,new GetProxyIDCommand("GetProxyID"));
+        pm.registerCommand(instance,new RegisterProxyCommand("RegisterProxy"));
         server.getServerID();
     }
 

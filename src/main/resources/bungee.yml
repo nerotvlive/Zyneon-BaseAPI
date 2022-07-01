@@ -9,6 +9,8 @@ description: Base API for all Zyneon Studios subservers
 website: https://zyneonstudios.com
 
 commands:
+  GetProxyID:
+  RegisterProxy:
   Ban:
   IPBan:
     aliases: [banip]
