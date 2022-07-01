@@ -123,7 +123,7 @@ public class User {
     }
 
     public void sendErrorMessage(String message) {
-        sendRawMessage("§4"+message);
+        sendRawMessage("§c"+message);
         if(player!=null) {
             player.playSound(player.getLocation(),Sound.BLOCK_ANVIL_BREAK,100,100);
         }

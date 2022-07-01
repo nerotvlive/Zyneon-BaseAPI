@@ -2,7 +2,7 @@ package com.zyneonstudios.api.waterfall.bungeebase.commands;
 
 import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.waterfall.bungeebase.api.API;
-import com.zyneonstudios.api.waterfall.bungeebase.api.NewSound;
+import com.zyneonstudios.api.waterfall.utils.user.Sound;
 import com.zyneonstudios.api.waterfall.bungeebase.api.PlayerAPI;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -23,7 +23,7 @@ public class Lobby extends Command {
                 API.sendErrorMessage(p,"§cDu bist bereits auf der Lobby!");
             } else {
                 p.connect(ProxyServer.getInstance().getServerInfo("Lobby-1"));
-                PlayerAPI.playNewSound(p,NewSound.ENTITY_CHICKEN_EGG);
+                PlayerAPI.playNewSound(p, Sound.ENTITY_CHICKEN_EGG);
             }
         } else {
             API.sendErrorMessage(Strings.needPlayer());

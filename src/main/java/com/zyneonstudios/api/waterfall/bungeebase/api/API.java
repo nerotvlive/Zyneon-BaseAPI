@@ -1,9 +1,10 @@
 package com.zyneonstudios.api.waterfall.bungeebase.api;
 
+import com.zyneonstudios.api.waterfall.Zyneon;
 import com.zyneonstudios.api.waterfall.bungeebase.BungeeBase;
-import com.zyneonstudios.api.waterfall.bungeebase.utils.Communicate;
-import com.zyneonstudios.api.waterfall.bungeebase.utils.Countdown;
-import com.zyneonstudios.api.waterfall.bungeebase.utils.ZyneonPlayer;
+import com.zyneonstudios.api.waterfall.utils.Countdown;
+import com.zyneonstudios.api.waterfall.utils.communication.Communicate;
+import com.zyneonstudios.api.waterfall.utils.user.Sound;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -13,18 +14,16 @@ import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
+
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class API {
-
-    public static HashMap<UUID, ZyneonPlayer> zyneonPlayers = new HashMap<>();
 
     public static String Prefix = "§5Zyneon §8» §7";
     public static String lowestVersion; //= ConfigAPI.CFG.getString("Settings.Version.Lowest");
@@ -43,12 +42,12 @@ public class API {
 
     public static void registerCommand(Plugin plugin, Command command, String name) {
         sendMessage("§0  §f--> §7Der Command §8\"§e"+name+"§8\"§7 wird geladen...");
-        BungeeBase.getPluginManager().registerCommand(plugin,command);
+        Zyneon.getPluginManager().registerCommand(plugin,command);
     }
 
     public static void registerListener(Plugin plugin,Listener listener,String name) {
         sendMessage("§0  §f--> §7Der Listener §8\"§e"+name+"§8\"§7 wird geladen...");
-        BungeeBase.getPluginManager().registerListener(plugin,listener);
+        Zyneon.getPluginManager().registerListener(plugin,listener);
     }
 
     public static void registerEvent(Plugin plugin,Listener listener,String name) {
@@ -245,7 +244,7 @@ public class API {
         receiver.sendMessage(getBaseComponent(Prefix+message));
         if(receiver instanceof ProxiedPlayer) {
             ProxiedPlayer p = (ProxiedPlayer)receiver;
-            PlayerAPI.playNewSound(p,NewSound.ENTITY_CHICKEN_EGG);
+            PlayerAPI.playNewSound(p, Sound.ENTITY_CHICKEN_EGG);
         }
     }
 
@@ -257,13 +256,13 @@ public class API {
         }
         if(receiver instanceof ProxiedPlayer) {
             ProxiedPlayer p = (ProxiedPlayer)receiver;
-            PlayerAPI.playNewSound(p,NewSound.ENTITY_CHICKEN_EGG);
+            PlayerAPI.playNewSound(p, Sound.ENTITY_CHICKEN_EGG);
         }
     }
 
     public static void sendMessage(ProxiedPlayer receiver,String message) {
         receiver.sendMessage(getBaseComponent(Prefix+message));
-        PlayerAPI.playNewSound(receiver,NewSound.ENTITY_CHICKEN_EGG);
+        PlayerAPI.playNewSound(receiver, Sound.ENTITY_CHICKEN_EGG);
     }
 
     public static void sendMessage(ProxiedPlayer receiver,String message,Boolean prefix) {
@@ -272,7 +271,7 @@ public class API {
         } else {
             receiver.sendMessage(getBaseComponent(message));
         }
-        PlayerAPI.playNewSound(receiver,NewSound.ENTITY_CHICKEN_EGG);
+        PlayerAPI.playNewSound(receiver, Sound.ENTITY_CHICKEN_EGG);
     }
 
     public static void sendErrorMessage(String Message) {
@@ -283,7 +282,7 @@ public class API {
         receiver.sendMessage(getBaseComponent(Message));
         if(receiver instanceof ProxiedPlayer) {
             ProxiedPlayer p = (ProxiedPlayer)receiver;
-            PlayerAPI.playNewSound(p,NewSound.BLOCK_ANVIL_BREAK);
+            PlayerAPI.playNewSound(p, Sound.BLOCK_ANVIL_BREAK);
         }
     }
 
@@ -294,7 +293,7 @@ public class API {
 
     public static void sendErrorMessage(ProxiedPlayer receiver,String Message) {
         receiver.sendMessage(getBaseComponent(Message));
-        PlayerAPI.playNewSound(receiver,NewSound.BLOCK_ANVIL_BREAK);
+        PlayerAPI.playNewSound(receiver, Sound.BLOCK_ANVIL_BREAK);
     }
 
     public static BaseComponent getBaseComponent(String Message) {

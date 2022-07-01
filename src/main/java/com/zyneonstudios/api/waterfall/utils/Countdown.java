@@ -1,4 +1,4 @@
-package com.zyneonstudios.api.waterfall.bungeebase.utils;
+package com.zyneonstudios.api.waterfall.utils;
 
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.scheduler.ScheduledTask;

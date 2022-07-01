@@ -1,8 +1,7 @@
-package com.zyneonstudios.api.waterfall.bungeebase.utils;
+package com.zyneonstudios.api.waterfall.utils.communication;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-import com.zyneonstudios.api.waterfall.bungeebase.api.API;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -43,6 +42,5 @@ public class Communicate {
         for(ServerInfo servers : ProxyServer.getInstance().getServers().values()) {
             servers.sendData( "base:bungee",out.toByteArray());
         }
-        API.scheduledShutdown();
     }
 }

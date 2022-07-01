@@ -2,7 +2,7 @@ package com.zyneonstudios.api.waterfall.bungeebase.commands;
 
 import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.waterfall.bungeebase.api.API;
-import com.zyneonstudios.api.waterfall.bungeebase.api.NewSound;
+import com.zyneonstudios.api.waterfall.utils.user.Sound;
 import com.zyneonstudios.api.waterfall.bungeebase.api.PlayerAPI;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -36,7 +36,7 @@ public class Teamchat extends Command {
                 for (ProxiedPlayer all : ProxyServer.getInstance().getPlayers()) {
                     if (all.hasPermission("zyneon.team")) {
                         API.sendMessage(all, format, false);
-                        PlayerAPI.playNewSound(all, NewSound.ENTITY_CHICKEN_STEP);
+                        PlayerAPI.playNewSound(all, Sound.ENTITY_CHICKEN_STEP);
                     }
                 }
                 API.sendMessage(format, false);

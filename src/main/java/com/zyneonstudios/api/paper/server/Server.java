@@ -8,7 +8,6 @@ import com.zyneonstudios.api.utils.sql.MySQL;
 import com.zyneonstudios.api.utils.Strings;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Server {
@@ -145,12 +144,20 @@ public class Server {
         }
     }
 
+    public void sendRawMessage(String message) {
+        Bukkit.getConsoleSender().sendMessage(message);
+    }
+
     public void sendMessage(String message) {
-        Bukkit.getConsoleSender().sendMessage(Strings.prefix()+message.replace("&&","%and%").replace("&","§").replace("%and%","&"));
+        sendRawMessage(Strings.prefix()+message.replace("&&","%and%").replace("&","§").replace("%and%","&"));
+    }
+
+    public void sendWarnMessage(String message) {
+        sendRawMessage("§e"+message.replace("&&","%and%").replace("&","§").replace("%and%","&"));
     }
 
     public void sendErrorMessage(String message) {
-        Bukkit.getConsoleSender().sendMessage("§c"+message.replace("&&","%and%").replace("&","§").replace("%and%","&"));
+        sendRawMessage("§c"+message.replace("&&","%and%").replace("&","§").replace("%and%","&"));
     }
 
     public void instantStop(String reason) {

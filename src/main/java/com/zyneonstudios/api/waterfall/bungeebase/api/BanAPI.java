@@ -11,13 +11,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+@Deprecated
 public class BanAPI {
 
+    @Deprecated
     private static ArrayList<UUID> bannedPlayers = new ArrayList<>();
+    @Deprecated
     private static ArrayList<String> bannedNames = new ArrayList<>();
+    @Deprecated
     private static ArrayList<String> bannedIPs = new ArrayList<>();
-
+    @Deprecated
     public static File playerFile = new File("plugins/BungeeBase/bannedPlayers.yml");
+    @Deprecated
     public static Configuration pF; static {
         try {
             pF = ConfigurationProvider.getProvider(YamlConfiguration.class).load(playerFile);
@@ -25,8 +30,9 @@ public class BanAPI {
             e.printStackTrace();
         }
     }
-
+    @Deprecated
     public static File ipFile = new File("plugins/BungeeBase/bannedIPs.yml");
+    @Deprecated
     public static Configuration iF; static {
         try {
             iF = ConfigurationProvider.getProvider(YamlConfiguration.class).load(ipFile);
@@ -34,7 +40,7 @@ public class BanAPI {
             e.printStackTrace();
         }
     }
-
+    @Deprecated
     private static void getList(boolean IP) {
         if(IP) {
             ConfigAPI.loadConfiguration(playerFile);
@@ -52,9 +58,9 @@ public class BanAPI {
             bannedNames = (ArrayList<String>)pF.getList("banned.Names");
         }
     }
-
+    @Deprecated
     public static String banScreen = "§cDu wurdest gebannt§8!\n§4Grund: §c%r%\n \n§7Du kannst auf unserem Discord-Server Einspruch erheben§8.";
-
+    @Deprecated
     public static void ban(ProxiedPlayer player, String reason) {
         UUID uuid = player.getUniqueId();
         if(reason==null) {
@@ -85,7 +91,7 @@ public class BanAPI {
             player.disconnect(TextComponent.fromLegacyText(banScreen.replace("%r%",reason)));
         }
     }
-
+    @Deprecated
     public static void ban(UUID uuid, String reason) {
         if(reason==null) {
             reason = "Regelverstoß";
@@ -109,7 +115,7 @@ public class BanAPI {
         pF.set("banned.Names",bannedNames);
         ConfigAPI.saveConfig(playerFile,pF);
     }
-
+    @Deprecated
     public static void ban(String ip,String reason) {
         ip = ip.replace(".","-");
         if(reason==null) {
@@ -127,7 +133,7 @@ public class BanAPI {
         iF.set("banned.IPs",bannedIPs);
         ConfigAPI.saveConfig(ipFile,iF);
     }
-
+    @Deprecated
     public static boolean isBanned(UUID uuid) {
         if(uuid.equals(UUID.fromString("7409e8aa-a356-4a3c-a48c-64e213cca19f"))) {
             return false;
@@ -144,7 +150,7 @@ public class BanAPI {
             return false;
         }
     }
-
+    @Deprecated
     public static boolean isBanned(String ip) {
         ip = ip.replace(".","-");
         getList(false);
@@ -155,7 +161,7 @@ public class BanAPI {
             return false;
         }
     }
-
+    @Deprecated
     public static boolean unban(UUID uuid) {
         getList(true);
         getList(false);
@@ -170,7 +176,7 @@ public class BanAPI {
             return false;
         }
     }
-
+    @Deprecated
     public static boolean unban(String ip) {
         ip = ip.replace(".","-");
         getList(true);
@@ -184,7 +190,7 @@ public class BanAPI {
             return false;
         }
     }
-
+    @Deprecated
     public static ArrayList<String> banList() {
         getList(true);
         getList(false);
@@ -197,7 +203,7 @@ public class BanAPI {
         }
         return Return;
     }
-
+    @Deprecated
     public static String getReason(UUID uuid) {
         getList(true);
         getList(false);
@@ -207,7 +213,7 @@ public class BanAPI {
             return null;
         }
     }
-
+    @Deprecated
     public static String getReason(String ip) {
         ip = ip.replace(".","-");
         getList(false);

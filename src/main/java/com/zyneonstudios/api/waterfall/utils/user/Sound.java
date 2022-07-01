@@ -1,6 +1,6 @@
-package com.zyneonstudios.api.waterfall.bungeebase.api;
+package com.zyneonstudios.api.waterfall.utils.user;
 
-public enum NewSound {
+public enum Sound {
     AMBIENT_BASALT_DELTAS_ADDITIONS,
     AMBIENT_BASALT_DELTAS_LOOP,
     AMBIENT_BASALT_DELTAS_MOOD,

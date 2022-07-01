@@ -1,4 +1,4 @@
-package com.zyneonstudios.api.waterfall.bungeebase.utils;
+package com.zyneonstudios.api.waterfall.utils.communication;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;

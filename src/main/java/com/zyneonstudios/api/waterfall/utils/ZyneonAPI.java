@@ -1,12 +1,11 @@
-package com.zyneonstudios.api.paper.utils;
+package com.zyneonstudios.api.waterfall.utils;
 
 import com.zyneonstudios.api.paper.Zyneon;
-import com.zyneonstudios.api.paper.utils.user.User;
 import com.zyneonstudios.api.utils.Strings;
-import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
+import com.zyneonstudios.api.waterfall.utils.user.ProxiedUser;
+import net.md_5.bungee.api.plugin.Listener;
+import net.md_5.bungee.api.plugin.Plugin;
+import net.md_5.bungee.api.plugin.PluginManager;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,22 +15,25 @@ import java.util.*;
 
 public class ZyneonAPI {
 
-    private HashMap<UUID, User> onlineUsers;
-
+    private HashMap<UUID, ProxiedUser> onlineUsers;
     public ZyneonAPI() {
         onlineUsers = new HashMap<>();
     }
 
-    public void connectUser(UUID uuid) {
-        this.onlineUsers.put(uuid,new User(uuid));
+    public HashMap<UUID, ProxiedUser> getOnlineUsers() {
+        return this.onlineUsers;
     }
 
-    public void disconnectUser(User user) {
+    public void connectUser(UUID uuid) {
+        this.onlineUsers.put(uuid,new ProxiedUser(uuid));
+    }
+
+    public void disconnectUser(ProxiedUser user) {
         onlineUsers.remove(user.getUUID());
         user.disconnect();
     }
 
-    public User getOnlineUser(UUID uuid) {
+    public ProxiedUser getOnlineUser(UUID uuid) {
         if(onlineUsers.containsKey(uuid)) {
             return onlineUsers.get(uuid);
         } else {
@@ -107,12 +109,8 @@ public class ZyneonAPI {
         return Integer.parseInt(format.format(now));
     }
 
-    public void initListenerClass(PluginManager pluginManager, Listener listener, Plugin plugin) {
-        Bukkit.getConsoleSender().sendMessage(Strings.prefix()+"§f  -> §7Lade Listenerklasse §e"+listener.getClass().getSimpleName()+"§8...");
-        pluginManager.registerEvents(listener,plugin);
-    }
-
-    public HashMap<UUID,User> getOnlineUsers() {
-        return this.onlineUsers;
+    public static void initListenerClass(PluginManager pluginManager, Listener listener, Plugin plugin) {
+        System.out.println(Strings.prefix()+"§f  -> §7Lade Listenerklasse §e"+listener.getClass().getSimpleName()+"§8...");
+        pluginManager.registerListener(plugin,listener);
     }
 }
