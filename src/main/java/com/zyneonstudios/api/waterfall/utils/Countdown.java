@@ -2,7 +2,6 @@ package com.zyneonstudios.api.waterfall.utils;
 
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.scheduler.ScheduledTask;
-
 import java.util.concurrent.TimeUnit;
 
 public abstract class Countdown {

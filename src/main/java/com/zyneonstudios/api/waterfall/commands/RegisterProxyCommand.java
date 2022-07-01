@@ -1,7 +1,7 @@
 package com.zyneonstudios.api.waterfall.commands;
 
-import com.zyneonstudios.api.paper.Zyneon;
-import com.zyneonstudios.api.paper.server.Server;
+import com.zyneonstudios.api.waterfall.Zyneon;
+import com.zyneonstudios.api.waterfall.server.Server;
 import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.utils.sql.MySQL;
 import com.zyneonstudios.api.waterfall.utils.communication.Communicate;

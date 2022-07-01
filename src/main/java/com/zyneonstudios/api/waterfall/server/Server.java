@@ -9,7 +9,6 @@ import com.zyneonstudios.api.waterfall.utils.Countdown;
 import com.zyneonstudios.api.waterfall.utils.communication.Communicate;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Server {

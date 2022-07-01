@@ -1,12 +1,11 @@
 package com.zyneonstudios.api.waterfall.utils;
 
-import com.zyneonstudios.api.paper.Zyneon;
+import com.zyneonstudios.api.waterfall.Zyneon;
 import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.waterfall.utils.user.ProxiedUser;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

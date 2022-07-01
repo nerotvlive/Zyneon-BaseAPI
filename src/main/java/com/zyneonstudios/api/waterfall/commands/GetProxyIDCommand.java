@@ -1,6 +1,6 @@
 package com.zyneonstudios.api.waterfall.commands;
 
-import com.zyneonstudios.api.paper.Zyneon;
+import com.zyneonstudios.api.waterfall.Zyneon;
 import com.zyneonstudios.api.utils.Strings;
 import com.zyneonstudios.api.waterfall.utils.communication.Communicate;
 import com.zyneonstudios.api.waterfall.utils.user.Sound;
