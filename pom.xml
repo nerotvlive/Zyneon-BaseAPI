@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>zyneonstudios</groupId>
     <artifactId>ZyneonAPI</artifactId>
-    <version>1.1.0-1.19-SNAPSHOT</version>
+    <version>1.2.0-1.19-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>ZyneonAPI</name>
     <description>Base API for all Zyneon Studios subservers</description>
@@ -67,13 +67,19 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.18.2-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.geysermc.floodgate</groupId>
             <artifactId>api</artifactId>
             <version>2.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.waterfallmc</groupId>
+            <artifactId>waterfall-api</artifactId>
+            <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

@@ -1,6 +1,6 @@
 name: ZyneonAPI
 version: '${project.version}'
-main: com.zyneonstudios.api.Zyneon
+main: com.zyneonstudios.api.paper.Zyneon
 api-version: 1.19
 prefix: ZyneonAPI
 loadbefore: [ ProjectsBase, KnockIT, Lobbysystem, Creative, FFA, BungeeBase, SkyBlock ]
