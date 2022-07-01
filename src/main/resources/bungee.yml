@@ -4,6 +4,7 @@ main: com.zyneonstudios.api.waterfall.Zyneon
 api-version: 1.19
 prefix: ZyneonAPI
 authors: [ ZyneonStudios, nerotvlive ]
+author: ZyneonStudios & nerotvlive
 description: Base API for all Zyneon Studios subservers
 website: https://zyneonstudios.com
 
