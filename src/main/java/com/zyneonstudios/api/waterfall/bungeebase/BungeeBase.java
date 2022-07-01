@@ -11,7 +11,7 @@ import net.md_5.bungee.api.plugin.PluginManager;
 public class BungeeBase {
 
     public static Zyneon instance;
-    private static String version = "1.23.0-1.19-SNAPSHOT";
+    private static String version = "1.23.1-1.19-SNAPSHOT";
     private static PluginManager PM;
     public static PluginManager getPluginManager() { return PM; }
     public static Zyneon getInstance() { return instance; }

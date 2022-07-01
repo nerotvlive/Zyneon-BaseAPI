@@ -3,7 +3,7 @@ version: '${project.version}'
 main: com.zyneonstudios.api.paper.Zyneon
 api-version: 1.19
 prefix: ZyneonAPI
-loadbefore: [ ProjectsBase, KnockIT, Lobbysystem, Creative, FFA, BungeeBase, SkyBlock ]
+loadbefore: [ ProjectsBase, KnockIT, Lobbysystem, Creative, FFA, SkyBlock ]
 authors: [ ZyneonStudios, nerotvlive ]
 description: Base API for all Zyneon Studios subservers
 website: https://zyneonstudios.com
