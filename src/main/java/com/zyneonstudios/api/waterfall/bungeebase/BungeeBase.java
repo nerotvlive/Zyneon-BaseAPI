@@ -10,7 +10,7 @@ import com.zyneonstudios.api.waterfall.bungeebase.listener.*;
 public class BungeeBase {
 
     public static ProxiedZyneon instance;
-    private static String version = "1.24.0-1.19-SNAPSHOT";
+    private static String version = "1.24.1-1.19-SNAPSHOT";
 
     public static ProxiedZyneon getInstance() { return instance; }
     public static String getVersion() { if(version.equalsIgnoreCase("v")) {return "0";} else {return version;} }

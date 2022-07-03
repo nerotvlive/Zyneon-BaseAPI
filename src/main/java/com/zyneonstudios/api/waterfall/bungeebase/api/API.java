@@ -2,8 +2,6 @@ package com.zyneonstudios.api.waterfall.bungeebase.api;
 
 import com.zyneonstudios.api.waterfall.ProxiedZyneon;
 import com.zyneonstudios.api.waterfall.bungeebase.BungeeBase;
-import com.zyneonstudios.api.waterfall.utils.ProxiedCountdown;
-import com.zyneonstudios.api.waterfall.utils.communication.Communicate;
 import com.zyneonstudios.api.waterfall.utils.user.Sound;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -14,7 +12,6 @@ import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
-
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -317,29 +314,11 @@ public class API {
         return calendar.get(Calendar.DAY_OF_YEAR);
     }
 
-    public static void scheduledShutdown() {
-        isStopping = true;
-        new ProxiedCountdown(27, BungeeBase.getInstance()) {
-            @Override
-            public void count(int current) {
-                if (current < 26) {
-                    sendMessage("Proxy-Neustart in " + current + " Sekunden.");
-                    if (current == 0) {
-                        for(ProxiedPlayer all : BungeeBase.getInstance().getProxy().getPlayers()) {
-                            all.disconnect("§cNetzwerk-Neustart\n§7Bitte warte etwas§8... Es kann ein paar Minuten dauern§8,§7 bis der Server wieder erreichbar ist§8!");
-                        }
-                        BungeeBase.getInstance().getProxy().stop();
-                    }
-                }
-            }
-        }.start();
-    }
-
     public static void checkForRestart() {
         BungeeBase.getInstance().getProxy().getScheduler().schedule(BungeeBase.getInstance(), () -> {
             if(!isStopping) {
                 if (getYearDay() == RestartDay) {
-                    Communicate.sendStop();
+                    ProxiedZyneon.getZyneonServer().stopNetwork();
                 }
             }
         }, 0, 1, TimeUnit.MINUTES);
