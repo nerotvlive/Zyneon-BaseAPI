@@ -32,7 +32,7 @@ public class Teamchat extends Command {
                 for (int i = 0; i < args.length; i++) {
                     m = m + args[i] + " ";
                 }
-                String format = "§dTeamchat §8● §f"+n+"§8 » §7" + m.replace("&", "§");
+                String format = "§9Teamchat §8● §f"+n+"§8 » §7" + m.replace("&", "§");
                 for (ProxiedPlayer all : ProxyServer.getInstance().getPlayers()) {
                     if (all.hasPermission("zyneon.team")) {
                         API.sendMessage(all, format, false);

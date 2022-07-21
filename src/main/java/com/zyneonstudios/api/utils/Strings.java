@@ -5,11 +5,11 @@ public class Strings {
     private static String prefixWord = "Zyneon";
 
     public static String prefix(String prefixWord) {
-        return "§d"+prefixWord+"§8 » §7";
+        return "§9"+prefixWord+"§8 » §7";
     }
 
     public static String prefix() {
-        return "§d"+prefixWord+" §8» §7";
+        return "§9"+prefixWord+" §8» §7";
     }
 
     public static String playerNotFound(String playerName) {

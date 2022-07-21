@@ -2,10 +2,12 @@ package com.zyneonstudios.api.waterfall.bungeebase.listener;
 
 import com.zyneonstudios.api.waterfall.bungeebase.BungeeBase;
 import com.zyneonstudios.api.waterfall.bungeebase.api.API;
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ServerPing;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.event.ProxyPingEvent;
-import net.md_5.bungee.api.event.TabCompleteEvent;
-import net.md_5.bungee.api.event.TabCompleteResponseEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 import net.md_5.bungee.event.EventPriority;
@@ -35,21 +37,26 @@ public class PlayerPing implements Listener {
             ping.setVersion(new ServerPing.Protocol("§cWartungsarbeiten",1));
             vers.setName("§4ZyneonCord " + BungeeBase.getVersion());
         } else {
+            /*
             vers.setName("§9ZyneonCord " + BungeeBase.getVersion());
             players.setSample(new ServerPing.PlayerInfo[]{
                     new ServerPing.PlayerInfo("§9ZyneonCord "+BungeeBase.getVersion(), "ZyneonCord "+BungeeBase.getVersion())
             });
             ping.setDescriptionComponent(API.getBaseComponent(API.getMotd(1).replace("%lV%",API.lowestVersion).replace("%hV%",API.highestVersion) + "\n" + API.getMotd(2).replace("%lV%",API.lowestVersion).replace("%hV%",API.highestVersion)));
+            */
+            vers.setName("§9ZyneonCord " + BungeeBase.getVersion());
+            players.setSample(new ServerPing.PlayerInfo[]{
+                    new ServerPing.PlayerInfo("§9ZyneonCord "+BungeeBase.getVersion(), "ZyneonCord "+BungeeBase.getVersion())
+            });
+            //ping.setDescriptionComponent(API.getBaseComponent("               §9§lＺＹＮＥＯＮ ＳＴＵＤＩＯＳ§r\n §9１§8．§9１９ §fＵＰＤＡＴＥ §8｜ §aＣＲＥＡＴＩＶＥ§8－§7ＲＥＬＥＡＳＥ"));
+            BaseComponent component = new TextComponent(new ComponentBuilder("                     ZYNEON STUDIOS\n").color(ChatColor.of(java.awt.Color.decode("#3696ff"))).append("§r            §91§8.§919§8-§7Update §8| §aCreative§8-§7Release§r").create());
+
+            ping.setDescriptionComponent(component);
         }
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST)
-    public void onTab(TabCompleteEvent e) {
-        e.setCancelled(true);
-    }
-
-    @EventHandler(priority = EventPriority.HIGHEST)
-    public void onTab(TabCompleteResponseEvent e) {
-        e.setCancelled(true);
-    }
+    /*@EventHandler
+    public void on(ProxyDefineCommandsEvent e) {
+        e.getCommands().clear();
+    }*/
 }
