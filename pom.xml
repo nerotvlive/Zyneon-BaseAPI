@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>zyneonstudios</groupId>
     <artifactId>ZyneonAPI</artifactId>
-    <version>1.5.0-1.19-SNAPSHOT</version>
+    <version>1.6.0-1.19-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>ZyneonAPI</name>
     <description>Base API for all Zyneon Studios subservers</description>
