@@ -61,6 +61,10 @@ public class ZyneonChatEvent extends Event implements Cancellable {
         return name+"§8 » §7"+message;
     }
 
+    public static HandlerList getHandlerList() {
+        return handlerList;
+    }
+
     @Override
     public boolean isCancelled() {
         return cancelled;
