@@ -2,6 +2,8 @@ package com.zyneonstudios.api.paper;
 
 import com.zyneonstudios.api.paper.commands.GetIDCommand;
 import com.zyneonstudios.api.paper.commands.RegisterCommand;
+import com.zyneonstudios.api.paper.listeners.PlayerChatListener;
+import com.zyneonstudios.api.paper.listeners.PlayerConnectListener;
 import com.zyneonstudios.api.paper.server.Server;
 import com.zyneonstudios.api.paper.listeners.PlayerJoinListener;
 import com.zyneonstudios.api.paper.listeners.PlayerQuitListener;
@@ -66,6 +68,8 @@ public final class Zyneon extends JavaPlugin {
     }
 
     private void initListeners() {
+        initListenerClass(new PlayerChatListener());
+        initListenerClass(new PlayerConnectListener());
         initListenerClass(new PlayerJoinListener());
         initListenerClass(new PlayerQuitListener());
     }
