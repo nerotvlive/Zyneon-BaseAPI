@@ -17,7 +17,9 @@ public class ZyneonChatEvent extends Event implements Cancellable {
     public ZyneonChatEvent(Player player,String message) {
         this.player = player;
         this.message = message;
-        if(player.hasPermission("zyneon.team")) {
+        if(player.hasPermission("zyneon.leading")) {
+            rank = "§4Team §8● §f";
+        } else if(player.hasPermission("zyneon.team")) {
             rank = "§cTeam §8● §f";
         } else if(player.hasPermission("zyneon.creator")) {
             rank = "§dCreator §8● §f";
@@ -58,7 +60,10 @@ public class ZyneonChatEvent extends Event implements Cancellable {
     }
 
     public String getFormat() {
-        return name+"§8 » §7"+message;
+        if(player.hasPermission("zyneon.premium")) {
+            message = message.replace("&&","%and%").replace("&","§");
+        }
+        return name+"§8 » §7"+message.replace("&&","%and%").replace("%and%","&");
     }
 
     public static HandlerList getHandlerList() {
